@@ -1,14 +1,11 @@
-from flask import Flask
-import logging
-logging.getLogger('werkzeug').setLevel(logging.ERROR)
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000 
 
-app = Flask(__name__)
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-@app.route('/')
-def home():
-    return "Hello World!"
-
-print('\033[36m' + "Add the link thats at the top of the Client Commands window to https://uptimerobot.com/ to keep your bot online 24/7!" + '\033[0m')
-
-if __name__ == '__main__':
-    app.run(port=80)
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
